@@ -1,0 +1,37 @@
+# Run docker container:
+#   docker compose up --remove-orphans
+#
+# MySQL server login credentials:
+#   username=root
+#   password=pasSworD
+#
+# MySQL server connection string:
+#   "Server=localhost; Port=4200; Username=root; Password=pasSworD; Database=db_odata_aspnet;"
+#
+# Documentation:
+#   https://hub.docker.com/_/mysql
+#   https://hub.docker.com/_/adminer
+
+version: '3.2'
+
+services:
+
+  db:
+    image: mysql:8.2.0
+    container_name: blog-odata-aspnet-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pasSworD
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+    ports:
+      - 4200:3306
+
+  adminer:
+    image: adminer:4.8.1
+    container_name: blog-odata-aspnet-adminer
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 4300:8080

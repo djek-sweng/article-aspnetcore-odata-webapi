@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="[8.2.3, )"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="[8.0.0, )" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ODataSample.Library\ODataSample.Library.csproj"/>
+  </ItemGroup>
+
+  <Target Name="NetClean" BeforeTargets="Clean">
+    <RemoveDir Directories="bin" />
+    <RemoveDir Directories="obj" />
+  </Target>
+
+</Project>

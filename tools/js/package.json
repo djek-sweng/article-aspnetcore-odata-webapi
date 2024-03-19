@@ -1,0 +1,15 @@
+{
+  "name": "odata-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Hello World\""
+  },
+  "author": "djek-sweng",
+  "license": "MIT",
+  "dependencies": {
+    "odata": "^1.3.2",
+    "odata-query-builder": "^0.0.7"
+  }
+}

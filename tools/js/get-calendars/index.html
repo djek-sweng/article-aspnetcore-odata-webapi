@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<title>get calendars</title>
+</head>
+<script src="./../node_modules/odata-query-builder/dist/index.js"></script>
+<script>
+
+const query = new QueryBuilder()
+  .toQuery();
+
+console.log(query);
+
+var url = "https://localhost:5001/calendars/query" + query;
+
+var headers = new Headers();
+
+var options = {
+  method: 'GET',
+  headers: headers
+};
+
+fetch(url, options)
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+</script>
+<body>
+</body>
+</html>
